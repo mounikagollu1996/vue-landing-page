@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, intial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue.js Components Fundamentals</title>
+</head>
+
+<body>
+    <div id="app" class="container mx-auto py-6">
+          <navbar></navbar>
+    </div>
+
+
+
+    <script type="text/x-template" id="navbar-template"> 
+        <div class="nav-container">
+            <img class="nav-logo" src="./images/logo.svg">
+            <div class="elements">
+                <nav-element v-for="plan in plans" :name="plan"></nav-element>
+            </div>
+            <button>Request Invite</button>
+        </div>
+    </script>
+
+    <script type="text/x-template" id="nav-menu-template">
+        <span class="title">
+            {{name}}
+        </span>
+    </script>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="style.css">
+</body>
+</html>
