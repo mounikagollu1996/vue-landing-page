@@ -1,4 +1,4 @@
-let PlanComponent = {
+let NavMenuComponent = {
     template: '#nav-menu-template',
     props: {
         name: {
@@ -8,10 +8,10 @@ let PlanComponent = {
    }
 }
 
-let PlanPickerComponent = {
+let NavBarComponent = {
     template: '#navbar-template',
     components: {
-        'nav-element': PlanComponent
+        'nav-element': NavMenuComponent
     },
     data() {
         return {
@@ -24,6 +24,6 @@ let PlanPickerComponent = {
 new Vue ({
     el: '#app',
     components: {
-        'navbar': PlanPickerComponent
+        'navbar': NavBarComponent
     }
 })
