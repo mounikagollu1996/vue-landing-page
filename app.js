@@ -1,4 +1,48 @@
 
+let ArticleCardComponent = {
+    template: '#article-card',
+    props: {
+        card: {
+            type: Object,
+            required: true
+        }
+    }
+}
+
+let ArticleComponent = {
+    template: '#articles',
+    components: {
+        'article-card': ArticleCardComponent
+    },
+    data() {
+        return {
+            heading: '',
+            cards: [
+                {
+                    img: './images/image-currency.jpg',
+                    title: 'Receive money in any currency with no fees',
+                    subtitle: 'The world is getting smaller and we are becoming more mobile. So why should you be forced to only receive money in a single..',
+                },
+                {
+                    img: './images/image-restaurant.jpg',
+                    title: 'Treat yourself without worrying about money',
+                    subtitle: 'Our simple budgeting feature allows you to separate out our spending and set realstic limits each month.That means you..'
+                },
+                {
+                    img: './images/image-plane.jpg',
+                    title: 'Take your Easybank card wherever you go',
+                    subtitle: 'We want you to enjoy your travels.This is why we dont charge any fees on purchases while you are abroad. We will even show you..'
+                },
+                {
+                    img: './images/image-confetti.jpg',
+                    title: 'Our invite-only Beta accounts are now live!',
+                    subtitle: 'After a lot of hardwork by the whole team,we are excited to launch our closed beta. It is easy to request an invite through the site...'
+                }
+            ]
+        }
+    }
+}
+
 let cardComponent = {
     template: '#card',
     props: {
@@ -82,8 +126,9 @@ let NavBarComponent = {
 new Vue ({
     el: '#app',
     components: {
-        'navbar': NavBarComponent,
+        navbar: NavBarComponent,
         'digital-banking': DigitalBankingComponent,
-        'benefits': BenefitComponent
+        benefits: BenefitComponent,
+        articles: ArticleComponent
     }
 })
