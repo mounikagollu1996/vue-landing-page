@@ -1,5 +1,6 @@
 body {
-    background-color: #f8f8f8;
+    background-color: #f9f9f9;
+    margin: auto;
 }
 
 .nav-container {
@@ -13,4 +14,23 @@ body {
     display: flex;
     justify-content: space-between;
     width: 35%;
+}
+.column-main {
+    padding: 0 5rem;
+    display: flex;
+    justify-content: space-between;
+}
+.column-first {
+    width: 50%
+}
+.hero-image {
+    background: url('./images/bg-intro-desktop.svg');
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+    width: 46%
+}
+.hero-image > img {
+    width: 80%
 }

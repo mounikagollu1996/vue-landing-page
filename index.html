@@ -9,19 +9,51 @@
 </head>
 
 <body>
-    <div id="app" class="container mx-auto py-6">
+    <div id="app">
           <navbar></navbar>
+          <div class="container">
+            <digital-banking></digital-banking>
+            <benefits></benefits>
+          </div>
+         
     </div>
 
+   
+    <script type="text/x-template" id="benefits">
+        <div class="card">
+            <card v-for="card in cards" :card='card'></card>
+        </div>
+    </script>
 
 
+    <script type="text/x-template" id="card">
+        <div>
+        <img :src="card.img">
+        <h4>{{card.title}}</h4>
+        <p>{{card.description}}</p>
+        </div>
+    </script>
+    
+    <script type="text/x-template" id="digital-banking">
+        <div class="column-main">
+            <div class="column-first">
+                <h1 class="hero-title">{{title}}</h1>
+                <p class="sub-title">{{description}}</p>
+                <button class="hero-cta">{{button}}</button>
+            </div>
+            <div class="hero-image">
+                <img src="./images/image-mockups.png">
+            </div>
+        </div>
+    
+    </script>
     <script type="text/x-template" id="navbar-template"> 
         <div class="nav-container">
             <img class="nav-logo" src="./images/logo.svg">
             <div class="elements">
-                <nav-element v-for="plan in plans" :name="plan"></nav-element>
+                <nav-element v-for="element in menu" :name="element"></nav-element>
             </div>
-            <button>Request Invite</button>
+            <button>{{button}}</button>
         </div>
     </script>
 
