@@ -110,7 +110,6 @@ button {
     font-size: 32px;
     font-weight: normal;
     margin-bottom: 0rem;
-    width: 90%;
     margin: auto;
 }
 .benefit-subtitle {
@@ -254,6 +253,10 @@ button {
         width: 90%;
         margin: auto;
         padding: 2rem 0
+    }
+    .benefit-title {
+        width: 90%;
+        margin: auto;
     }
     .benefit-card {
         width: 85%;
