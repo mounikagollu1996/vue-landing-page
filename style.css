@@ -1,6 +1,7 @@
 body {
-    background-color: #f9f9f9;
+    background-color: #fAFAFA;
     margin: auto;
+    font-size: 18px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -8,7 +9,8 @@ body {
     background: #ffffff;
     display: flex;
     justify-content: space-between;
-    padding: 2rem 7rem
+    padding: 1rem 7rem;
+    align-items: center;
     
 }
 .elements {
@@ -23,23 +25,30 @@ body {
     flex-wrap: wrap;
     justify-content: space-between;
 }
+.column-main:before {
+    content: "";
+    position: absolute;
+    width: 900px;
+    height: 820px;
+    right: 0;
+    top: -12rem;
+    z-index: -1;
+    background: url('./images/bg-intro-desktop.svg');
+    background-repeat: no-repeat;
+}
 .column-first {
     width: 35%;
-    padding-top: 9rem;
+    padding-top: 6rem;
 }
 .hero-image {
-    background: url('./images/bg-intro-desktop.svg');
-    z-index: -1;
-    width: 65%;
-    position: relative;
-    left: 7rem;
-    bottom: 15rem;
+    width: 55%
 }
 .hero-image > img {
-    width: 80%;
+    z-index: -1;
     position: relative;
-    top: 9rem;
-    left: 8rem;
+    bottom: 8rem;
+    left: 5rem;
+    width: 700px
 }
 .footer-class {
     background-color: #2D314D;
@@ -60,40 +69,52 @@ body {
 .navigation-icon {
     cursor: pointer;
 }
+.nav-title {
+    color: #9698A6
+}
+.nav-logo {
+    width: 139px;
+    height: 20px
+}
 .nav-title:hover {
     border-bottom: 5px solid #31D35C
 }
 button {
-    background-color:  #31D35C;
+    background-image: linear-gradient(94deg, #31D35C 10%, #2BB7DA 95%);
     border: 1px solid  #31D35C;
     border-radius: 22px;
-    padding: 0.8rem 2rem
+    padding: 0.8rem 2rem;
+    color: #ffffff
 }
 .hero-title {
     font-weight: normal;
-    color: #151a43;
+    color: #2D314D;
     width: 80%;
     font-size: 48px;
+    margin-bottom: 1rem
 }
 .hero-sub-title {
-    color: #545876;
-    width: 77%;
+    color: #9698A6;
     line-height: 1.5;
     padding-bottom: 1rem
 }
 .benefits {
-    margin-top: -8rem;
-    background-color: #f4f4f4;
+    margin-top: -19rem;
+    background-color: #F3F4F6;
     padding: 3rem 7rem;
+    position: relative;
+    z-index: -2
 }
 .benefit-title {
-    color: #151a43;
+    color: #2D314D;
     font-size: 32px;
     font-weight: normal;
     margin-bottom: 0rem;
+    width: 90%;
+    margin: auto;
 }
 .benefit-subtitle {
-    color: #545876;
+    color: #9698A6;
     width: 47%;
     line-height: 1.5;
     margin-bottom: 3rem
@@ -107,12 +128,12 @@ button {
     width: 19%
 }
 .benefit-card > h4 {
-    color: #151a43;
+    color: #2D314D;
     opacity: 0.8;
 }
 .benefit-card > p {
-    color: #545876;
-    font-size: 14px;
+    color: #9698A6;
+    font-size: 16px;
     line-height: 1.5;
 }
 .benefit-card > img {
@@ -124,7 +145,7 @@ button {
 .articles > .title {
     font-size: 32px;
     font-weight: normal;
-    color: #151a43
+    color: #2D314D
 }
 .article-card {
     width: 23%;
@@ -138,13 +159,13 @@ button {
     height: 200px
 }
 .article-card > h4 {
-    color: #151a43;
+    color: #2D314D;
     font-weight: normal;
     padding: 0 1.5rem;
     margin-bottom: 0
 }
 .article-card > p {
-    color: #545876;
+    color:#9698A6;
     font-weight: normal;
     padding: 0 1.5rem;
     font-size: 14px;
@@ -163,27 +184,46 @@ button {
 .footer-class > .column > img {
     padding-bottom: 2rem
 }
-.footer-class > .column > h5 {
+.footer-class > .column > p {
     font-size: 18px;
     margin-bottom: 0;
     font-weight: normal;
-    color: #e8e8e8
+    color: #e8e8e8;
+    margin-bottom: 0
+}
+.classB {
+    border: 1px solid red;
+}
+.media-column {
+    display: flex;
+    justify-content: space-between;
 }
 
 @media only screen and (max-width: 960px) {
+    body {
+        font-size: 16px
+    }
     .column-main {
         padding: 0;
         flex-direction: column-reverse;
-        margin-bottom: 3rem
+        margin-bottom: 3rem;
+    }
+    .column-main:before {
+        width: 100%;
+        height: 100%;
+        background-image: url('./images/bg-intro-mobile.svg') !important;
+        background-repeat: no-repeat;
+        top: 0
     }
     .column-first {
         width: 90%;
         margin: auto;
         padding-top: 0rem;
         text-align: center;
+        margin-top: -5rem
     }
     .hero-image {
-        width: 100%;
+        width: 90%;
         margin: auto;
         left: 0;
         bottom: 3rem
@@ -191,17 +231,19 @@ button {
     .hero-image > img {
         width: 100%;
         left: 0;
-        top: 0
+        bottom: 7rem
     }
     .hero-title {
         width: 90%;
-        font-size: 32px;
+        font-size: 42px;
         margin: auto;
         padding-bottom: 1rem
     }
     .hero-sub-title {
-        width: 90%;
+        width: 100%;
         margin: auto;
+        font-size: 16px;
+        padding-bottom: 2rem
     }
     .benefits {
         margin-top: 0;
@@ -214,34 +256,44 @@ button {
         padding: 2rem 0
     }
     .benefit-card {
-        width: 75%;
+        width: 85%;
         margin: auto;
         margin-bottom: 2rem;
     }
     .articles {
         padding: 3rem 0
     }
+    .articles > .title {
+        text-align: center;
+    }
     .article-card {
-        width: 90%;
+        width: 85%;
         margin: auto;
         margin-bottom: 3rem;
     }
     .footer-class {
         flex-direction: column;
+        padding: 2rem 3rem;
+        text-align: center;
     }
+  
     .mobile-nav-main {
         width: 100%;
-        height: 100px;
         background-color: #ffffff;
     }
     .mobile-nav-main > .mobile-top {
         display: flex;
-        justify-content: space-evenly;
-        padding-top: 2rem;
+        justify-content: space-between;
+        padding: 1.5rem 2rem;
+        align-items: center;
+    }
+    .mobile-nav-main > .mobile-top > img {
+        width: 139px;
+        height: 20px
     }
     #navigation-icon > img{
         width: 30px;
-        height: 30px;
+        height: 20px;
     }
     .open {
         color: black !important;
@@ -261,5 +313,8 @@ button {
      .footer-class > .footer-cta >button {
          margin-top: 2rem;
          padding: 0.8rem 1rem
+     }
+     button {
+         padding: 1rem 2.5rem
      }
 }

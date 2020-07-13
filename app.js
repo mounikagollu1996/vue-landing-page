@@ -159,14 +159,14 @@ new Vue ({
     data() {
         return {
             mobileView: true,
-            showNav: false
+            showNav: false,
         }
     },
     methods: {
         handleView() {
             this.mobileView = window.innerWidth <= 990;
         }
-    },
+    },  
     created() {
         this.handleView();
     }
