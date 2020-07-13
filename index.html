@@ -10,24 +10,61 @@
 
 <body>
     <div id="app">
-          <navbar></navbar>
+          <navbar v-if="!mobileView"></navbar>
           <div class="container">
+            <navigation-mobile v-if="mobileView"></navigation-mobile>  
             <digital-banking></digital-banking>
             <benefits></benefits>
             <articles></articles>
+            <landing-footer></landing-footer>
           </div>
          
     </div>
 
    
+    <script type="text/x-template" id="nav-mobile">
+        <div class="mobile-nav-main">
+            <div class="mobile-top">
+                <img src="./images/logo.svg">
+                <div id="navigation-icon"
+                    @click="showNav = !showNav,hidden = !hidden">
+                    <img v-if="hidden" src="./images/icon-hamburger.svg">
+                    <img v-if="!hidden" src="./images/icon-close.svg">
+                </div>
+            </div>    
+            <div class="mobile-menu" :class="{'open':showNav}">
+                <h4 v-for="element in menu">{{element}}</h4>
+            </div>
+        </div>
+    </script>
+    <script type="text/x-template" id="landing-footer">
+        <div class="footer-class">
+            <div class="column">
+                <img src="./images/logo.svg">
+                <div class="media-column">
+                    <img v-for="media in socialmedia" :src="media">
+                </div>
+            </div>
+            <div class="column">
+                <h5 v-for="menu in menuone">{{menu}}</h5>
+            </div>
+            <div class="column">
+                <h5 v-for="menu in menutwo">{{menu}}</h5>
+            </div>
+            <div class="footer-cta"><button>Request Invitation</button></div>
+        </div>  
+    </script>
     <script type="text/x-template" id="articles">
-        <div class="article-card">
-            <article-card v-for="card in cards" :card="card"></article-card>
+        <div class="articles">
+            <h3 class="title">{{heading}}</h3>
+            <div class="article-cards">
+                <article-card v-for="card in cards" :card="card"></article-card>
+            </div>
         </div>
     </script>
 
     <script type="text/x-template" id="article-card">
-        <div>
+        <div class="article-card">
             <img :src="card.img">
             <h4>{{card.title}}</h4>
             <p>{{card.subtitle}}</p>
@@ -35,13 +72,18 @@
     </script>
 
     <script type="text/x-template" id="benefits">
-        <div class="card">
-            <card v-for="card in cards" :card='card'></card>
+        <div class="benefits">
+            <h3 class="benefit-title">{{title}}</h3>
+            <p class="benefit-subtitle">{{subtitle}}</p>
+            <div class="benefit-cards">
+                <card v-for="card in cards" :card='card'></card>
+            </div>
         </div>
+        
     </script>
 
     <script type="text/x-template" id="card">
-        <div>
+        <div class="benefit-card">
         <img :src="card.img">
         <h4>{{card.title}}</h4>
         <p>{{card.description}}</p>
@@ -52,7 +94,7 @@
         <div class="column-main">
             <div class="column-first">
                 <h1 class="hero-title">{{title}}</h1>
-                <p class="sub-title">{{description}}</p>
+                <p class="hero-sub-title">{{description}}</p>
                 <button class="hero-cta">{{button}}</button>
             </div>
             <div class="hero-image">
@@ -72,7 +114,7 @@
     </script>
 
     <script type="text/x-template" id="nav-menu-template">
-        <span class="title">
+        <span class="nav-title">
             {{name}}
         </span>
     </script>

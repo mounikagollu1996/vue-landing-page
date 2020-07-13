@@ -1,4 +1,27 @@
 
+let NavMobileComponent = {
+    template: '#nav-mobile',
+    data() {
+        return {
+            menu: ['Home', 'About', 'Contact', 'Blog', 'Careers'],
+            showNav: false,
+            hidden: true
+        }
+    }
+}
+
+let FooterComponent = {
+    template: '#landing-footer',
+    data() {
+        return {
+            logo: './images/logo.svg',
+            socialmedia: ['./images/icon-facebook.svg', './images/icon-twitter.svg','./images/icon-youtube.svg','./images/icon-pinterest.svg','./images/icon-instagram.svg'],
+            menuone: ['About', 'Contact', 'Blog'],
+            menutwo: ['careers', 'support', 'privacy policy']
+        }
+    }
+}
+
 let ArticleCardComponent = {
     template: '#article-card',
     props: {
@@ -16,7 +39,7 @@ let ArticleComponent = {
     },
     data() {
         return {
-            heading: '',
+            heading: 'Latest Articles',
             cards: [
                 {
                     img: './images/image-currency.jpg',
@@ -60,7 +83,7 @@ let BenefitComponent = {
     },
     data() {
         return {
-            title: 'Why choose Esybank?',
+            title: 'Why choose Easybank?',
             subtitle: 'We leverage open Banking to turn your bank account into your financial hub, Control your finances like never before',
             cards: [
                 {
@@ -93,7 +116,7 @@ let DigitalBankingComponent = {
     data() {
         return {
             title: 'Next generation digital banking',
-            description: 'Take your financial life online.Your Easybank account will be a one-stop-shop for spending,saving,budgeting,investing and much more.',
+            description: 'Take your financial life online.Your Easybank account will be a one-stop-shop for spending, saving, budgeting, investing and much more.',
             button: 'Request Invite'
         }
     }
@@ -118,7 +141,7 @@ let NavBarComponent = {
     data() {
         return {
             menu: ['Home', 'About', 'Contact', 'Blog', 'Careers'],
-            button: 'Request Invite'
+            button: 'Request Invite',
         }
     }   
 }
@@ -129,6 +152,22 @@ new Vue ({
         navbar: NavBarComponent,
         'digital-banking': DigitalBankingComponent,
         benefits: BenefitComponent,
-        articles: ArticleComponent
+        articles: ArticleComponent,
+        'landing-footer': FooterComponent,
+        'navigation-mobile': NavMobileComponent
+    },
+    data() {
+        return {
+            mobileView: true,
+            showNav: false
+        }
+    },
+    methods: {
+        handleView() {
+            this.mobileView = window.innerWidth <= 990;
+        }
+    },
+    created() {
+        this.handleView();
     }
 })
